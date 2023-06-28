@@ -3,7 +3,8 @@ package com.bae.matching.utils
 import android.util.Log
 import com.bae.matching.app.MatchingApplication.Companion.DEBUG
 
-object Dlog {
+object Dlog
+{
     private const val TAG = "BAE"
 
     /** Log Level Error  */
