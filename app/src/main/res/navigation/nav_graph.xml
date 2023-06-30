@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.bae.matching.views.fragment.SearchFragment"
+        android:name="com.bae.matching.views.fragment.TopFragment"
         android:label="Search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_top" />
 
     <fragment
         android:id="@+id/likeFragment"
