@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Matching</string>
+    <!-- Tab Bar Items -->
+    <string name="tab_bar_item_1_title">さがす</string>
+    <string name="tab_bar_item_2_title">いいね</string>
+    <string name="tab_bar_item_3_title">トーク</string>
+    <string name="tab_bar_item_4_title">好みカード</string>
+    <string name="tab_bar_item_5_title">マイページ</string>
+
+    <!-- Tab1 Items -->
+    <string name="tab_bar_item_1_sub_1_title">さがす</string>
+    <string name="tab_bar_item_1_sub_2_title">For You</string>
+
 </resources>

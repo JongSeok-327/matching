@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.bae.matching.views.fragment.TopFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_top" />
+
+    <fragment
+        android:id="@+id/likeFragment"
+        android:name="com.bae.matching.views.fragment.LikeFragment"
+        android:label="Like"
+        tools:layout="@layout/fragment_like" />
+
+    <fragment
+        android:id="@+id/talkFragment"
+        android:name="com.bae.matching.views.fragment.TalkFragment"
+        android:label="fragment_talk"
+        tools:layout="@layout/fragment_talk" />
+
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.bae.matching.views.fragment.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
+
+    <fragment
+        android:id="@+id/myPageFragment"
+        android:name="com.bae.matching.views.fragment.MyPageFragment"
+        android:label="fragment_my_page"
+        tools:layout="@layout/fragment_my_page" />
+</navigation>

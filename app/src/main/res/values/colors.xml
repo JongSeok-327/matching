@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="bottom_selected_color">#E91E63</color>
+    <color name="bottom_not_selected_color">#8C8A8A</color>
+    <color name="transparent">#00000000</color>
+    <color name="primary_color">#448CF6</color>
+    <color name="search_view_bg_color">#C9E6E5E5</color>
 </resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@id/searchFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_search"
+        android:title="@string/tab_bar_item_1_title" />
+
+    <item
+        android:id="@id/likeFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_thumb_up"
+        android:title="@string/tab_bar_item_2_title" />
+
+    <item
+        android:id="@id/talkFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_talk"
+        android:title="@string/tab_bar_item_3_title" />
+
+    <item
+        android:id="@id/favoriteFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_favorite"
+        android:title="@string/tab_bar_item_4_title" />
+
+    <item
+        android:id="@id/myPageFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_my_page"
+        android:title="@string/tab_bar_item_5_title" />
+
+</menu>
