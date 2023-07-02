@@ -8,4 +8,5 @@
     <color name="transparent">#00000000</color>
     <color name="primary_color">#448CF6</color>
     <color name="search_view_bg_color">#C9E6E5E5</color>
+    <color name="user_info_tweet_color">#1FB9FF</color>
 </resources>

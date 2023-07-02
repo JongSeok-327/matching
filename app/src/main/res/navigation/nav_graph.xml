@@ -9,7 +9,11 @@
         android:id="@+id/searchFragment"
         android:name="com.bae.matching.views.fragment.TopFragment"
         android:label="Search"
-        tools:layout="@layout/fragment_top" />
+        tools:layout="@layout/fragment_top">
+        <action
+            android:id="@+id/action_searchFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/likeFragment"
@@ -34,4 +38,15 @@
         android:name="com.bae.matching.views.fragment.MyPageFragment"
         android:label="fragment_my_page"
         tools:layout="@layout/fragment_my_page" />
+
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.bae.matching.views.fragment.UserDetailFragment"
+        android:label="fragment_user_detail"
+        tools:layout="@layout/fragment_user_detail">
+        <argument
+            android:name="userId"
+            app:argType="integer"
+            android:defaultValue="1"/>
+    </fragment>
 </navigation>
