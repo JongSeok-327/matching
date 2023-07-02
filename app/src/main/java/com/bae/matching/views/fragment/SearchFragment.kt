@@ -12,10 +12,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.bae.matching.R
 import com.bae.matching.databinding.FragmentSearchBinding
 import com.bae.matching.utils.Dlog
-import com.bae.matching.viewmodels.ListLoadState
+import com.bae.matching.utils.ListLoadState
 import com.bae.matching.viewmodels.SearchViewModel
 import com.bae.matching.views.UserListItemDecoration
 import com.bae.matching.views.adapter.UserListRecyclerAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 
@@ -38,6 +39,8 @@ class SearchFragment : Fragment()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+            val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.navigation)
+            bottomNavigationView?.visibility = View.VISIBLE
             // Pull To Refresh
             swipeRefresh.apply {
                 setOnRefreshListener {
@@ -83,7 +86,7 @@ class SearchFragment : Fragment()
 
             listStateLoading.map {
                 Dlog.d("List Loading State : $it")
-                if (it == ListLoadState.LOADING) {
+                if (it == ListLoadState.LOADING || it == ListLoadState.PREPARE) {
                     binding.progressBar.visibility = View.VISIBLE
                 } else {
                     binding.progressBar.visibility = View.GONE

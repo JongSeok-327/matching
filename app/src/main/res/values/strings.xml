@@ -11,4 +11,9 @@
     <string name="tab_bar_item_1_sub_1_title">さがす</string>
     <string name="tab_bar_item_1_sub_2_title">For You</string>
 
+    <!-- UserInfo Items -->
+    <string name="title_user_information">基本情報</string>
+    <string name="title_user_nick_name">ニックネーム</string>
+    <string name="title_user_age">年齢</string>
+    <string name="title_user_address">居住地</string>
 </resources>
