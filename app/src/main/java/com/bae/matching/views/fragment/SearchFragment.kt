@@ -6,14 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bae.matching.R
+import com.bae.matching.app.MatchingApplication
 import com.bae.matching.databinding.FragmentSearchBinding
 import com.bae.matching.utils.Dlog
 import com.bae.matching.utils.ListLoadState
 import com.bae.matching.viewmodels.SearchViewModel
+import com.bae.matching.viewmodels.SearchViewModelFactory
 import com.bae.matching.views.UserListItemDecoration
 import com.bae.matching.views.adapter.UserListRecyclerAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -25,7 +28,13 @@ class SearchFragment : Fragment()
     private var _binding: FragmentSearchBinding? = null
     private val binding
         get() = _binding!!
-    private val searchViewModel: SearchViewModel by viewModels()
+    private val searchViewModel: SearchViewModel by viewModels {
+        SearchViewModelFactory(
+            requireActivity().application as MatchingApplication,
+            (requireActivity().application as MatchingApplication).matchingRepository
+        )
+    }
+
     private lateinit var userListAdapter: UserListRecyclerAdapter
 
     override fun onCreateView(
@@ -64,17 +73,12 @@ class SearchFragment : Fragment()
             }
         }
 
-        loadData()
+        searchViewModel.getUserData()
         observeViewModel()
     }
     private fun refresh() {
         binding.swipeRefresh.isRefreshing = false
-        loadData()
-    }
-
-    private fun loadData() {
-        // User Data
-        searchViewModel.getUserData()
+        searchViewModel.refresh()
     }
 
     private fun observeViewModel() {
