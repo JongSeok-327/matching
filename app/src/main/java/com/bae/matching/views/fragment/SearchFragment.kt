@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.bae.matching.R
 import com.bae.matching.databinding.FragmentSearchBinding
 import com.bae.matching.utils.Dlog
 import com.bae.matching.viewmodels.ListLoadState
@@ -46,6 +48,8 @@ class SearchFragment : Fragment()
             userListAdapter = UserListRecyclerAdapter(object : UserListRecyclerAdapter.ItemCallback{
                 override fun onClickedItem(userId: Int) {
                     Dlog.d("On Item Clicked : $userId")
+                    val action = TopFragmentDirections.actionSearchFragmentToUserDetailFragment(userId)
+                    findNavController().navigate(action)
                 }
             })
 
