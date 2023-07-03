@@ -7,6 +7,9 @@ import android.content.pm.PackageManager
 import com.bae.matching.model.database.MatchingDatabase
 import com.bae.matching.model.network.RetrofitApi
 import com.bae.matching.repository.MatchingRepository
+import com.bae.matching.utils.SharedPreferencesHelper
+import com.bae.matching.utils.THEME_DEFAULT_MODE
+import com.bae.matching.utils.ThemeUtil
 
 class MatchingApplication: Application()
 {
@@ -19,6 +22,8 @@ class MatchingApplication: Application()
     override fun onCreate() {
         super.onCreate()
         DEBUG = isDebuggable(this)
+        val themePref = SharedPreferencesHelper(this).getTheme()
+        ThemeUtil.applyTheme(themePref?: THEME_DEFAULT_MODE)
     }
 
     private fun isDebuggable(context: Context): Boolean {

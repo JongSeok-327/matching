@@ -5,13 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
 import com.bae.matching.R
+import com.bae.matching.databinding.DialogSelectThemeBinding
 import com.bae.matching.databinding.FragmentMyPageBinding
 import com.bae.matching.utils.Dlog
 import com.bae.matching.utils.MyPageItem
+import com.bae.matching.utils.SharedPreferencesHelper
 import com.bae.matching.utils.THEME_DARK_MODE
 import com.bae.matching.utils.THEME_DEFAULT_MODE
 import com.bae.matching.utils.THEME_LIGHT_MODE
@@ -53,35 +53,40 @@ class MyPageFragment : Fragment()
     }
 
     private fun showThemeSelectionDialog() {
-        val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_select_theme, null)
+        context?.let { mContext ->
+            val dialogView = DialogSelectThemeBinding.inflate(layoutInflater)
+            val alertDialogBuilder = AlertDialog.Builder(context)
+                .setView(dialogView.root)
+                .setCancelable(true)
+            val dialog = alertDialogBuilder.create()
 
-        val alertDialogBuilder = AlertDialog.Builder(context)
-            .setView(dialogView)
-            .setTitle("Select Theme")
-            .setCancelable(true)
+            dialogView.apply {
+                // Checked Radio Button
+                when (SharedPreferencesHelper(mContext).getTheme()) {
+                    THEME_LIGHT_MODE -> radioGroup.check(R.id.radio_light_theme)
+                    THEME_DARK_MODE -> radioGroup.check(R.id.radio_dark_theme)
+                    THEME_DEFAULT_MODE -> radioGroup.check(R.id.radio_default_theme)
+                }
 
-        val alertDialog = alertDialogBuilder.create()
+                btnConfirm.setOnClickListener {
+                    val selectedTheme = when (radioGroup.checkedRadioButtonId) {
+                        R.id.radio_light_theme -> THEME_LIGHT_MODE
+                        R.id.radio_dark_theme -> THEME_DARK_MODE
+                        else -> THEME_DEFAULT_MODE
+                    }
 
-        val confirmButton = dialogView.findViewById<Button>(R.id.confirmButton)
-        val cancelButton = dialogView.findViewById<Button>(R.id.cancelButton)
-        val themeRadioGroup = dialogView.findViewById<RadioGroup>(R.id.themeRadioGroup)
+                    ThemeUtil.applyTheme(selectedTheme)
+                    SharedPreferencesHelper(mContext).saveTheme(selectedTheme)
+                    dialog.dismiss()
+                }
 
-        confirmButton.setOnClickListener {
-            val selectedTheme = when (themeRadioGroup.checkedRadioButtonId) {
-                R.id.lightThemeRadioButton -> THEME_LIGHT_MODE
-                R.id.darkThemeRadioButton -> THEME_DARK_MODE
-                else -> THEME_DEFAULT_MODE
+                btnCancel.setOnClickListener {
+                    dialog.dismiss()
+                }
             }
 
-            ThemeUtil.applyTheme(selectedTheme)
-            alertDialog.dismiss()
+            dialog.show()
         }
-
-        cancelButton.setOnClickListener {
-            alertDialog.dismiss()
-        }
-
-        alertDialog.show()
     }
 
     override fun onDestroyView() {
