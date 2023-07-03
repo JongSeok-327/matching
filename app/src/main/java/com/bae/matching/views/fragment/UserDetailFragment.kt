@@ -40,7 +40,7 @@ class UserDetailFragment : Fragment()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val userId = args.userId
-        Dlog.e("UserDetailFragment id : $userId")
+        Dlog.i("UserDetailFragment id : $userId")
         binding.apply {
             val bottomNavigationView = activity?.findViewById<BottomNavigationView>(R.id.navigation)
             bottomNavigationView?.visibility = View.GONE

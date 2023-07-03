@@ -4,9 +4,14 @@ import android.app.Application
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
+import com.bae.matching.model.database.MatchingDatabase
+import com.bae.matching.model.network.RetrofitApi
+import com.bae.matching.repository.MatchingRepository
 
 class MatchingApplication: Application()
 {
+    private val matchingDatabase by lazy { MatchingDatabase.getDatabase(this) }
+    val matchingRepository by lazy { MatchingRepository(RetrofitApi.userApiService, matchingDatabase) }
     companion object {
         var DEBUG = false
     }

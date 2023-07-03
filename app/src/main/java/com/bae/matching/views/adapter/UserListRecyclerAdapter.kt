@@ -52,7 +52,7 @@ class UserListRecyclerAdapter(
 
                 // Item Click
                 root.setOnClickListener {
-                    userInfo.id?.let { callBack.onClickedItem(it)  }
+                    userInfo.id.let { callBack.onClickedItem(it)  }
                 }
             }
         }
