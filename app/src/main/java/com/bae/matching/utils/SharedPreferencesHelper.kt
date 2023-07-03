@@ -30,5 +30,10 @@ class SharedPreferencesHelper
     }
 
     fun getUpdateTime() = prefs?.getLong(PREF_TIME, 0)
-    fun getCacheDuration() = prefs?.getString(PREF_CACHE_DURATION, "")
+
+    fun saveTheme(theme: String) {
+        prefs?.edit(commit = true) {putString(PREF_THEME, theme)}
+    }
+
+    fun getTheme() = prefs?.getString(PREF_THEME, THEME_DEFAULT_MODE)
 }

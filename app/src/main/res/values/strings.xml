@@ -16,4 +16,16 @@
     <string name="title_user_nick_name">ニックネーム</string>
     <string name="title_user_age">年齢</string>
     <string name="title_user_address">居住地</string>
+
+    <!-- MyPage Items -->
+    <string name="my_page_my_information">情報更新</string>
+    <string name="my_page_theme">テーマ</string>
+
+    <!-- Theme Items -->
+    <string name="theme_title">テーマを選択</string>
+    <string name="theme_light">Light Mode</string>
+    <string name="theme_dark">Dark Mode</string>
+    <string name="theme_default">Default</string>
+    <string name="theme_confirm">Confirm</string>
+    <string name="theme_cancel">Cancel</string>
 </resources>
