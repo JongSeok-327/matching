@@ -16,4 +16,8 @@
     <string name="title_user_nick_name">ニックネーム</string>
     <string name="title_user_age">年齢</string>
     <string name="title_user_address">居住地</string>
+
+    <!-- MyPage Items -->
+    <string name="my_page_my_information">情報更新</string>
+    <string name="my_page_theme">テーマ</string>
 </resources>
